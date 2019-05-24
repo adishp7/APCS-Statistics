@@ -12,10 +12,14 @@ public class Statistics {
 	private double[] yArray;
 	
 public Statistics(double[] x, double[] y) {
-	xArray = x;
-	yArray = y;
+	setxArray(x);
+	setyArray(y);
 }
 	
+public Statistics() {
+	// TODO Auto-generated constructor stub
+}
+
 public String statdata()
 {
 	DescriptiveStatistics descriptiveStatistics = new DescriptiveStatistics();
@@ -39,7 +43,7 @@ public String Regressiondatapoint()
 	double intercept = dataregression.getIntercept();
 	double slope = dataregression.getSlope();
 	double slopestde = dataregression.getSlopeStdErr();
-	return "The equation for the line is: " + "y = " + slope + "x" + intercept;
+	return "The equation for the line is: " + "y = " + slope + "x" + intercept + ". The Slope Standard Error is " + slopestde;
 	
 }
 
@@ -51,11 +55,11 @@ public String Regressionarray()
 	double intercept = dataregression.getIntercept();
 	double slope = dataregression.getSlope();
 	double slopestde = dataregression.getSlopeStdErr();
-	return "The equation for the line is: " + "y = " + slope + "x" + intercept;
+	return "The equation for the line is: " + "y = " + slope + "x" + intercept + ". The Slope Standard Error is " + slopestde;
 	
 }
 
-public double correlation(final double[] xArray, final double[] yArray) {
+public double correlation(double[] xArray, double[] yArray) {
 	/**
 	 * Computes the Pearson's product-moment correlation coefficient between two arrays.
 	 *
@@ -96,6 +100,22 @@ public void Onettest()
 	System.out.println("P Value: " + TestUtils.t(mean, observedvalues));
 	TestUtils.tTest(mean, observedvalues, alpha);
 	
+}
+
+public double[] getxArray() {
+	return xArray;
+}
+
+public void setxArray(double[] xArray) {
+	this.xArray = xArray;
+}
+
+public double[] getyArray() {
+	return yArray;
+}
+
+public void setyArray(double[] yArray) {
+	this.yArray = yArray;
 }
 
 
